@@ -3,12 +3,12 @@ import ContextProviders from './contexts/ContextProviders';
 import GlobalScript from './components/common/GlobalScript';
 import './index.css';
 
-import Home from './routes/Home';
+import Sample from './routes/Sample';
 
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Sample />} />
     </Routes>
   );
 }
