@@ -1,4 +1,5 @@
 import React, { useState, ReactElement, Children, isValidElement } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface TabDivProps {
   children: React.ReactNode;
@@ -34,9 +35,18 @@ const TabDiv: React.FC<TabDivProps> = ({ children }) => {
 
       {/* Active Tab Content */}
       <div className="flex p-4 h-[600px] max-h-[600px] border rounded bg-white shadow overflow-y-auto divide-gray-300">
-        <div className="flex-1">
-          {validChildren[activeIndex]}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex-1"
+          >
+            {validChildren[activeIndex]}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
