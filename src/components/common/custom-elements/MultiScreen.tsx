@@ -11,6 +11,22 @@ const MultiScreen: React.FC<MultiScreenProps> = ({ children }) => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (isCooldown) return;
+      switch (event.key) {
+        case 'ArrowDown':
+        case 'PageDown':
+          handleScroll(window.innerHeight);
+          break;
+        case 'ArrowUp':
+        case 'PageUp':
+          handleScroll(-window.innerHeight);
+          break;
+        default:
+          break;
+      }
+    };
+
     const handleWheel = (event: WheelEvent) => {
       if (isCooldown) return;
       handleScroll(event.deltaY);
@@ -27,6 +43,7 @@ const MultiScreen: React.FC<MultiScreenProps> = ({ children }) => {
     if (container) {
       container.addEventListener('wheel', handleWheel);
       container.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
@@ -34,6 +51,7 @@ const MultiScreen: React.FC<MultiScreenProps> = ({ children }) => {
         container.removeEventListener('wheel', handleWheel);
         container.removeEventListener('touchmove', handleTouchMove);
       }
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isCooldown, lastScrollTop]);
 
