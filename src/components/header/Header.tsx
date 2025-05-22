@@ -1,5 +1,5 @@
 import { colorPalette } from '../../styles/colors';
-import Button from '../common/custom-elements/Button';
+import Button from '../common/custom-elements/buttons/Button';
 
 const Header: React.FC = () => {
   return (

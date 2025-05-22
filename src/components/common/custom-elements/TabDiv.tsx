@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface TabDivProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const TabDiv: React.FC<TabDivProps> = ({ children }) => {
+const TabDiv: React.FC<TabDivProps> = ({ children, className }) => {
   const validChildren = Children.toArray(children).filter(isValidElement) as ReactElement[];
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -15,7 +16,7 @@ const TabDiv: React.FC<TabDivProps> = ({ children }) => {
   });
 
   return (
-    <div className="flex flex-col max-h-full overflow-y-hidden">
+    <div className={`flex flex-col max-h-full overflow-y-hidden ${className}`}>
       {/* Tab Buttons */}
       <div className="flex space-x-2 border-b mb-4">
         {labels.map((label, index) => (
@@ -34,7 +35,7 @@ const TabDiv: React.FC<TabDivProps> = ({ children }) => {
       </div>
 
       {/* Active Tab Content */}
-      <div className="flex p-4 h-[600px] max-h-[600px] border rounded bg-white shadow overflow-y-auto divide-gray-300">
+      <div className="flex p-4 w-full min-h-[600px] border rounded bg-white shadow overflow-y-auto divide-gray-300">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}

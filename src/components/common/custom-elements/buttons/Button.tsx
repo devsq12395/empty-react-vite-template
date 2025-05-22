@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, FC } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import clsx from "clsx";
+import { colorPalette } from '../../../../styles/colors';
 
 // Tailwind base + variants using class-variance-authority
 const buttonVariants = cva(
@@ -8,12 +9,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gray-800 text-white hover:bg-gray-700 focus:ring-gray-500",
-        primary: "bg-blue-600 text-white hover:bg-blue-500 focus:ring-blue-400",
-        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-300",
-        danger: "bg-red-600 text-white hover:bg-red-500 focus:ring-red-400",
-        ghost: "bg-transparent hover:bg-gray-100 text-gray-800",
-        link: "text-blue-600 underline-offset-4 hover:underline",
+        default: `bg-[${colorPalette.txt_primary}] text-white hover:bg-[${colorPalette.txt_secondary}] focus:ring-[${colorPalette.txt_tertiary}]`,
+        primary: `bg-[${colorPalette.primary}] text-white hover:bg-[${colorPalette.secondary}] focus:ring-[${colorPalette.tertiary}]`,
+        secondary: `bg-[${colorPalette.bg1}] text-[${colorPalette.text}] hover:bg-[${colorPalette.bg2}] focus:ring-[${colorPalette.bg3}]`,
+        danger: `bg-[${colorPalette.accent}] text-white hover:bg-[${colorPalette.tertiary}] focus:ring-[${colorPalette.secondary}]`,
+        ghost: `bg-transparent hover:bg-[${colorPalette.bg1}] text-[${colorPalette.text}]`,
+        link: `text-[${colorPalette.primary}] underline-offset-4 hover:underline`,
       },
       size: {
         sm: "px-3 py-1.5 text-sm",
