@@ -10,17 +10,15 @@ interface ButtonCatalogProps {
   title: string;
   shortDesc?: string;
   price: string;
-  defaultWidth?: string;
-  defaultHeight?: string;
 }
 
-const ButtonCatalog: React.FC<ButtonCatalogProps> = ({ imageUrl, hoverImageUrl, title, shortDesc, price, defaultWidth, defaultHeight }) => {
+const ButtonCatalog: React.FC<ButtonCatalogProps> = ({ imageUrl, hoverImageUrl, title, shortDesc, price }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div 
-      className="border border-gray-200 rounded-lg p-4 flex flex-col items-center justify-between"
-      style={{ width: defaultWidth, height: defaultHeight, backgroundColor: colorPalette.bg3 }}
+      className={`border border-gray-200 rounded-lg p-4 flex flex-col items-center justify-between w-[250px] min-h-[400px]`}
+      style={{ backgroundColor: colorPalette.buttonCatalogBg }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       animate={{ scale: isHovered ? 1.2 : 1 }}
@@ -29,7 +27,7 @@ const ButtonCatalog: React.FC<ButtonCatalogProps> = ({ imageUrl, hoverImageUrl, 
       {/* Top Div */}
       <div className="w-full h-full flex flex-col gap-3">
         {/* Image Container */}
-        <div className="w-[100%] h-[60%]" style={{ backgroundColor: colorPalette.bg2 }}>
+        <div className="w-[100%] h-[200px]" style={{ backgroundColor: colorPalette.bg2 }}>
           <img 
             src={isHovered ? hoverImageUrl : imageUrl} 
             alt={title} 
@@ -51,7 +49,7 @@ const ButtonCatalog: React.FC<ButtonCatalogProps> = ({ imageUrl, hoverImageUrl, 
       <div className="w-full flex items-center justify-center">
         <Button 
           type="button" 
-          variant="secondary"
+          variant="default"
           size="md"
         >
           Add to Cart

@@ -16,4 +16,16 @@ export const colorPalette = {
   txt_tertiary: '#A87C5F', // Disabled states
   txt_onAccent: '#FFFFFF', // Text on buttons
   txt_inverted: '#FFF9E5', // For dark overlays
+
+  // Buttons
+  buttonBg: '#FFFFFF', // Button background
+  buttonHoverBg: '#FFA41B', // Button hover background
+  buttonText: '#3E2C08', // Button text
+
+  buttonCatalogBg: '#FFFFFF',
+  buttonCatalogHoverBg: '#FFA41B',
+  buttonCatalogButtonText: '#3E2C08',
+
+  // Catalog
+  catalogBg: '#CCCCCC',
 };
