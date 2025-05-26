@@ -2,7 +2,12 @@ module.exports = {
   mode: 'jit',
   content: ["./src/**/*.{html,js,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['"Ancizar Sans"', 'sans-serif'],
+        raleway: ['Raleway', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
-};t
+};

@@ -37,10 +37,10 @@ const ButtonCatalog: React.FC<ButtonCatalogProps> = ({ imageUrl, hoverImageUrl, 
 
         {/* Texts */}
         <div className="flex flex-col gap-2">
-          <h3 className="text-bold text-2xl" style={{ color: colorPalette.txt_primary }}>{title}</h3>
+          <h3 className="text-bold text-2xl font-raleway" style={{ color: colorPalette.txt_primary }}>{title}</h3>
           <div className="flex flex-col">
-            {shortDesc && <p className="text-md" style={{ color: colorPalette.txt_secondary }}>{shortDesc}</p>}
-            <p className="text-md" style={{ color: colorPalette.txt_secondary }}>{price}</p>
+            {shortDesc && <p className="text-md font-raleway" style={{ color: colorPalette.txt_secondary }}>{shortDesc}</p>}
+            <p className="text-md font-raleway" style={{ color: colorPalette.txt_secondary }}>{price}</p>
           </div>
         </div>
       </div>

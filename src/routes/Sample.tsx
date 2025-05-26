@@ -20,8 +20,6 @@ const Sample: React.FC = () => {
                 title="Product 1"
                 shortDesc="Short description"
                 price="$10.00"
-                defaultWidth="300px"
-                defaultHeight="400px"
               />
               <ButtonCatalog 
                 imageUrl="/path/to/product1.png"
@@ -29,8 +27,6 @@ const Sample: React.FC = () => {
                 title="Product 1"
                 shortDesc="Short description"
                 price="$10.00"
-                defaultWidth="300px"
-                defaultHeight="400px"
               />
             </div>
             <div>Content 2</div>
