@@ -9,10 +9,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: `bg-[${colorPalette.buttonBg}] text-[${colorPalette.buttonText}] hover:bg-[${colorPalette.buttonHoverBg}] focus:ring-[${colorPalette.txt_tertiary}]`,
-        primary: `bg-[${colorPalette.primary}] text-white hover:bg-[${colorPalette.secondary}] focus:ring-[${colorPalette.tertiary}]`,
-        secondary: `bg-[${colorPalette.bg1}] text-[${colorPalette.text}] hover:bg-[${colorPalette.bg2}] focus:ring-[${colorPalette.bg3}]`,
-        danger: `bg-[${colorPalette.accent}] text-white hover:bg-[${colorPalette.tertiary}] focus:ring-[${colorPalette.secondary}]`,
+        default: `bg-[${colorPalette.buttonBg}] text-[${colorPalette.buttonText}] hover:bg-[${colorPalette.buttonHoverBg}]  `,
+        primary: `bg-[${colorPalette.primary}] text-white hover:bg-[${colorPalette.secondary}]`,
+        secondary: `bg-[${colorPalette.bg1}] text-[${colorPalette.text}] hover:bg-[${colorPalette.bg2}]`,
+        danger: `bg-[${colorPalette.accent}] text-white hover:bg-[${colorPalette.tertiary}]`,
         ghost: `bg-transparent hover:bg-[${colorPalette.bg1}] text-[${colorPalette.text}]`,
         link: `text-[${colorPalette.primary}] underline-offset-4 hover:underline`,
       },
@@ -45,6 +45,7 @@ export const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <button
+      type="button"
       className={clsx(buttonVariants({ variant, size }), className)}
       {...props}
     >

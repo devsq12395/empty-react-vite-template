@@ -48,7 +48,6 @@ const ButtonCatalog: React.FC<ButtonCatalogProps> = ({ imageUrl, hoverImageUrl, 
       {/* Bottom Div */}
       <div className="w-full flex items-center justify-center">
         <Button 
-          type="button" 
           variant="default"
           size="md"
         >
