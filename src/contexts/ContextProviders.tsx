@@ -1,5 +1,7 @@
 import React from 'react';
 import { SystemProvider } from './SystemContext';
+import { UserProvider } from './UserContext';
+import { ModalProvider } from './ModalContext';
 
 interface ContextProvidersProps {
   children: React.ReactNode;
@@ -8,7 +10,11 @@ interface ContextProvidersProps {
 const ContextProviders: React.FC<ContextProvidersProps> = ({ children }) => {
   return (
     <SystemProvider>
-      {children}
+      <UserProvider>
+        <ModalProvider>
+          {children}
+        </ModalProvider>
+      </UserProvider>
     </SystemProvider>
   );
 };
