@@ -1,7 +1,11 @@
 import { colorPalette } from '../../styles/colors';
 import Button from '../common/custom-elements/buttons/Button';
 
+import { useModal } from '../../contexts/ModalContext';
+
 const Header: React.FC = () => {
+  const modalContext = useModal();
+
   return (
     <header className="fixed top-0 w-full" style={{ backgroundColor: colorPalette.bg2 }}>
       <div className="flex justify-between items-center p-4">
@@ -10,9 +14,7 @@ const Header: React.FC = () => {
         </div>
         <div className="flex flex-row gap-10">
           <Button variant="link">Shop</Button>
-          <Button variant="link">Subscribe</Button>
-          <Button variant="link">Sign In</Button>
-          <Button variant="primary">Register</Button>
+          <Button variant="link" onClick={() => modalContext.setisLoginModalOpen(true)}>Sign In</Button>
         </div>
       </div>
     </header>

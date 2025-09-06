@@ -2,11 +2,11 @@ import React, { createContext, useState, useContext } from 'react';
 
 interface ModalContextType {
   isTermsAndPrivacyPopupOpen: boolean;
-  isLoginPopupOpen: boolean;
+  isLoginModalOpen: boolean;
   isCashInModalOpen: boolean;
 
   setIsTermsAndPrivacyPopupOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsLoginPopupOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setisLoginModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsCashInModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -14,13 +14,13 @@ const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isTermsAndPrivacyPopupOpen, setIsTermsAndPrivacyPopupOpen] = useState<boolean>(false);
-  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState<boolean>(false);
+  const [isLoginModalOpen, setisLoginModalOpen] = useState<boolean>(false);
   const [isCashInModalOpen, setIsCashInModalOpen] = useState<boolean>(false);
 
   return (
     <ModalContext.Provider value={{ 
       isTermsAndPrivacyPopupOpen, setIsTermsAndPrivacyPopupOpen,
-      isLoginPopupOpen, setIsLoginPopupOpen,
+      isLoginModalOpen, setisLoginModalOpen,
       isCashInModalOpen, setIsCashInModalOpen
     }}>
       {children}

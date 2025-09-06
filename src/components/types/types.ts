@@ -3,6 +3,11 @@ export interface DropDownMenuEntry {
   onClick: () => void;
 }
 
+export interface User {
+  id: string; // uuid
+  email?: string | null;
+}
+
 export interface UserDetails {
   id: string; // uuid
   created_at: string; // ISO timestamp

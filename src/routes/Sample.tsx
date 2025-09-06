@@ -6,9 +6,17 @@ import TabDiv from "../components/common/custom-elements/TabDiv";
 import PaginationBox from "../components/common/custom-elements/PaginationBox";
 import ButtonCatalog from "../components/common/custom-elements/buttons/ButtonCatalog";
 
+import LoginModal from "../components/common/custom-elements/modals/LoginModal";
+
+import { useModal } from "../contexts/ModalContext";
+
 const Sample: React.FC = () => {
+  const modalContext = useModal();
+
   return <>
     <Header />
+
+    {/* Main Body */}
     <div className="mt-25 w-full h-full">
       <TabDiv className="w-full h-full">
         <div data-label="Tab 1" className="w-full h-full flex">
@@ -37,6 +45,9 @@ const Sample: React.FC = () => {
         <div data-label="Tab 3">Content 3</div>
       </TabDiv>
     </div>
+
+    {/* Modals */}
+    <LoginModal closePopup={() => modalContext.setisLoginModalOpen(false)} />
   </>
 };
 

@@ -5,7 +5,7 @@ import './index.css';
 
 import Sample from './routes/Sample';
 
-const frameworkVersion = '1.3';
+const frameworkVersion = '1.4';
 
 function AppRoutes() {
   console.log('Created with SQ Framework Version:', frameworkVersion);
