@@ -4,9 +4,10 @@ import Button from './buttons/Button';
 
 interface PaginationBoxProps {
   children: React.ReactNode[];
+  style?: React.CSSProperties;
 }
 
-const PaginationBox: React.FC<PaginationBoxProps> = ({ children }) => {
+const PaginationBox: React.FC<PaginationBoxProps> = ({ children, style }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
   const totalPages = children.length;
@@ -33,7 +34,7 @@ const PaginationBox: React.FC<PaginationBoxProps> = ({ children }) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center gap-4 overflow-hidden">
+    <div className="w-full h-full flex flex-col items-center justify-center gap-4 overflow-hidden" style={style}>
       <div className="min-h-[75%] flex flex-col items-center justify-center overflow-hidden">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div

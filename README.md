@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# SQ Framework 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Version](https://img.shields.io/badge/version-1.5-blue)
 
-Currently, two official plugins are available:
+## Changelog
+- **Added** custom hooks system
+- **Added** `useTheme` hook
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to Use
 
-## Expanding the ESLint configuration
+### Available Hooks
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+#### Theme
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Import the Hook**
+   
+   Add the following import statement to your component:
+   
+   ```tsx
+   import { useTheme } from "../hooks/useTheme";
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   const { token, fontFamily, themeName, setThemeName } = useTheme();
+   // Note that "setThemeName" will change the theme name.
+   // Example: setThemeName("light")
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Apply Theme Styles**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+   Use the theme properties in your component styles:
+
+   ```tsx
+   <div
+     className="mt-25 w-full h-full"
+     style={{
+       backgroundColor: token("page.bg"),
+       fontFamily: fontFamily("inter"),
+       color: token("text.primary"),
+     }}
+   >
+   ```
+
+---
